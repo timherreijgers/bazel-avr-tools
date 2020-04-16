@@ -118,24 +118,27 @@ filegroup(
   ],
 )
 
-cc_toolchain_suite(
-  name = 'toolchain',
-  toolchains = {
-    'avr|gcc': ':cc-compiler-avr-gcc',
-  },
-)
+load(":cc_toolchain_config.bzl", "cc_toolchain_config")
+cc_toolchain_config(name = "avr_toolchain_config")
+
 
 cc_toolchain(
   name = 'cc-compiler-avr-gcc',
   all_files = ':avr_gcc_all_files',
   compiler_files = ':avr_gcc_compiler_files',
-  cpu = 'avr',
   dwp_files = ':empty',
-  dynamic_runtime_libs = [':empty'],
   linker_files = ':avr_gcc_linker_files',
   objcopy_files = ':objcopy',
-  static_runtime_libs = [':empty'],
   strip_files = ':strip',
   supports_param_files = 1,
+  toolchain_config="avr_toolchain_config",
+  #toolchain_config="bla",
+)
+
+cc_toolchain_suite(
+  name = 'toolchain',
+  toolchains = {
+    'avr': ':cc-compiler-avr-gcc',
+  },
 )
 

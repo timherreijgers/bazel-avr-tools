@@ -23,17 +23,15 @@ def _hex_impl(ctx):
 hex = rule(
     implementation=_hex_impl,
     attrs={
-        "src": attr.label(mandatory=True, allow_files=True, single_file=True),
+        "src": attr.label(mandatory=True, allow_files=True),
         "_size": attr.label(
                 allow_files=True,
-                single_file=True,
                 executable=True,
                 cfg="host",
                 default=Label("@avr_tools//tools/avr:size")
         ),
         "_objcopy": attr.label(
                 allow_files=True,
-                single_file=True,
                 executable=True,
                 cfg="host",
                 default=Label("@avr_tools//tools/avr:objcopy")
@@ -62,10 +60,9 @@ def _eeprom_impl(ctx):
 eeprom = rule(
     implementation=_eeprom_impl,
     attrs={
-        "src": attr.label(mandatory=True, allow_files=True, single_file=True),
+        "src": attr.label(mandatory=True, allow_files=True),
         "_objcopy": attr.label(
                 allow_files=True,
-                single_file=True,
                 executable=True,
                 cfg="host",
                 default=Label("@avr_tools//tools/avr:objcopy")
@@ -94,10 +91,9 @@ def _listing_impl(ctx):
 listing = rule(
     implementation=_listing_impl,
     attrs={
-        "src": attr.label(mandatory=True, allow_files=True, single_file=True),
+        "src": attr.label(mandatory=True, allow_files=True),
         "_objdump": attr.label(
                 allow_files=True,
-                single_file=True,
                 executable=True,
                 cfg="host",
                 default=Label("@avr_tools//tools/avr:objdump")
