@@ -132,7 +132,6 @@ cc_toolchain(
     strip_files = ":strip",
     supports_param_files = 1,
     toolchain_config = "avr_toolchain_config",
-    #toolchain_config="bla",
 )
 
 cc_toolchain_suite(
