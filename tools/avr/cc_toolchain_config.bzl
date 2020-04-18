@@ -71,6 +71,8 @@ def _impl(ctx):
                         flags = [
                             "-isystem",
                             "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/avr/include",
+                            "-isystem",
+                            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/4.9.2/include",
                         ],
                     ),
                 ],

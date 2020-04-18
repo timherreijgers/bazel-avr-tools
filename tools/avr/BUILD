@@ -120,14 +120,19 @@ filegroup(
     ],
 )
 
+filegroup(
+    name = "all",
+    srcs = glob(["**/*"]),
+)
+
 cc_toolchain_config(name = "avr_toolchain_config")
 
 cc_toolchain(
     name = "cc-compiler-avr-gcc",
-    all_files = ":avr_gcc_all_files",
-    compiler_files = ":avr_gcc_compiler_files",
+    all_files = ":all",
+    compiler_files = ":all",
     dwp_files = ":empty",
-    linker_files = ":avr_gcc_linker_files",
+    linker_files = ":all",
     objcopy_files = ":objcopy",
     strip_files = ":strip",
     supports_param_files = 1,
