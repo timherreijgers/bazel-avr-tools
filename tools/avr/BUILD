@@ -135,7 +135,7 @@ cc_toolchain(
 )
 
 cc_toolchain_suite(
-    name = "toolchain",
+    name = "toolchain_avr",
     toolchains = {
         "avr": ":cc-compiler-avr-gcc",
     },
