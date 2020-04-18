@@ -1,6 +1,5 @@
 load("@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl", "tool_path")
 
-
 def _impl(ctx):
     tool_paths = [
         tool_path(
@@ -40,14 +39,14 @@ def _impl(ctx):
             path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-objdump",
         ),
         tool_path(
-          name = "size",
-          path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-size",
+            name = "size",
+            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-size",
         ),
         tool_path(
             name = "strip",
             path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-strip",
         ),
-    ]                   
+    ]
     return cc_common.create_cc_toolchain_config_info(
         ctx = ctx,
         toolchain_identifier = "avr8-gnu-toolchain-linux_x86_64",
@@ -58,14 +57,15 @@ def _impl(ctx):
         compiler = "gcc",
         abi_version = "avr",
         abi_libc_version = "avr",
-        tool_paths=tool_paths,
-        cxx_builtin_include_directories=["external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/include",
-                                         "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/include-fixed",
-                                         "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/avr/include",
-                                         "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/include",
-                                         "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/include-fixed",
-                                         "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/avr/include/avr",
-                                         ],
+        tool_paths = tool_paths,
+        cxx_builtin_include_directories = [
+            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/include",
+            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/include-fixed",
+            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/avr/include",
+            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/include",
+            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/include-fixed",
+            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/avr/include/avr",
+        ],
     )
 
 cc_toolchain_config = rule(
