@@ -44,8 +44,8 @@ def _eeprom_impl(ctx):
     ctx.actions.run_shell(
         inputs = [
             input,
-            ctx.executable._objcopy,
         ],
+        tools = [ctx.executable._objcopy],
         outputs = [output],
         progress_message = "Generating eeprom HEX file from %s" % input.short_path,
         command = "%s -j .eeprom --change-section-lma .eeprom=0 -O ihex %s %s" % (
@@ -58,7 +58,7 @@ def _eeprom_impl(ctx):
 eeprom = rule(
     implementation = _eeprom_impl,
     attrs = {
-        "src": attr.label(mandatory = True, allow_files = True),
+        "src": attr.label(mandatory = True, allow_single_file = True),
         "_objcopy": attr.label(
             allow_files = True,
             executable = True,
