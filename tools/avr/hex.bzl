@@ -77,6 +77,7 @@ def _listing_impl(ctx):
             input,
             ctx.executable._objdump,
         ],
+        tools = [ctx.executable._objdump],
         outputs = [output],
         progress_message = "Dumping assembly listing from %s" % input.short_path,
         command = "%s -j .text -j .data -j .eeprom -j .fuse -h -S -s %s > %s" % (
@@ -89,7 +90,7 @@ def _listing_impl(ctx):
 listing = rule(
     implementation = _listing_impl,
     attrs = {
-        "src": attr.label(mandatory = True, allow_files = True),
+        "src": attr.label(mandatory = True, allow_single_file = True),
         "_objdump": attr.label(
             allow_files = True,
             executable = True,
