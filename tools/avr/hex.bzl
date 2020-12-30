@@ -4,11 +4,10 @@ def _hex_impl(ctx):
     ctx.actions.run_shell(
         inputs = [
             input,
-            ctx.executable._objcopy,
-            ctx.executable._size,
         ],
+        tools = [ctx.executable._objcopy, ctx.executable._size],
         outputs = [output],
-        progress_message = "Creating code and data HEX file from %s" % input.short_path,
+        #progress_message = "Creating code and data HEX file from %s" % input.short_path,
         command = "%s -j .text -j .data -O ihex %s %s; %s --format=avr -C --mcu=%s %s" % (
             ctx.executable._objcopy.path,
             input.path,
@@ -22,7 +21,7 @@ def _hex_impl(ctx):
 hex = rule(
     implementation = _hex_impl,
     attrs = {
-        "src": attr.label(mandatory = True, allow_files = True),
+        "src": attr.label(mandatory = True, allow_single_file = True),
         "_size": attr.label(
             allow_files = True,
             executable = True,
