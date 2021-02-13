@@ -8,12 +8,11 @@ def _hex_impl(ctx):
         tools = [ctx.executable._objcopy, ctx.executable._size],
         outputs = [output],
         #progress_message = "Creating code and data HEX file from %s" % input.short_path,
-        command = "%s -j .text -j .data -O ihex %s %s; %s --format=avr --mcu=%s %s" % (
+        command = "%s -j .text -j .data -O ihex %s %s; %s --format=gnu %s" % (
             ctx.executable._objcopy.path,
             input.path,
             output.path,
             ctx.executable._size.path,
-            ctx.var["MCU"],
             input.path,
         ),
     )
