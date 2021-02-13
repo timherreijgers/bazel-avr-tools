@@ -5,47 +5,47 @@ def _impl(ctx):
     tool_paths = [
         tool_path(
             name = "ar",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-ar",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-ar",
         ),
         tool_path(
             name = "compat-ld",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-ld",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-ld",
         ),
         tool_path(
             name = "cpp",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-cpp",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-cpp",
         ),
         tool_path(
             name = "gcc",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-gcc",
         ),
         tool_path(
             name = "gcov",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-gcov",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-gcov",
         ),
         tool_path(
             name = "ld",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-ld",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-ld",
         ),
         tool_path(
             name = "nm",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc-nm",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-gcc-nm",
         ),
         tool_path(
             name = "objcopy",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-objcopy",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-objcopy",
         ),
         tool_path(
             name = "objdump",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-objdump",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-objdump",
         ),
         tool_path(
             name = "size",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-size",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-size",
         ),
         tool_path(
             name = "strip",
-            path = "avr8-gnu-toolchain-linux_x86_64/bin/avr-strip",
+            path = "avr-gcc-10.1.0-x64-linux/bin/avr-strip",
         ),
     ]
 
@@ -70,11 +70,11 @@ def _impl(ctx):
                     flag_group(
                         flags = [
                             "-isystem",
-                            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/avr/include",
+                            "external/avr_tools/tools/avr/avr-gcc-10.1.0-x64-linux/avr/include",
                             "-isystem",
-                            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/4.9.2/include",
+                            "external/avr_tools/tools/avr/avr-gcc-10.1.0-x64-linux/lib/gcc/avr/10.1.0/include",
                             "-isystem",
-                            "external/avr_tools/tools/avr/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/4.9.2/include-fixed/",
+                            "external/avr_tools/tools/avr/avr-gcc-10.1.0-x64-linux/lib/gcc/avr/10.1.0/include-fixed/",
                         ],
                     ),
                 ],
@@ -84,7 +84,7 @@ def _impl(ctx):
 
     return cc_common.create_cc_toolchain_config_info(
         ctx = ctx,
-        toolchain_identifier = "avr8-gnu-toolchain-linux_x86_64",
+        toolchain_identifier = "avr-gcc-10.1.0-x64-linux",
         host_system_name = "x86_64-pc-linux-gnu",
         target_system_name = "avr",
         target_cpu = "avr",

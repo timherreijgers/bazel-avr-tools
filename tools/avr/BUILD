@@ -6,75 +6,75 @@ package(default_visibility = ["//visibility:public"])
 filegroup(
     name = "ar",
     srcs = [
-        "avr8-gnu-toolchain-linux_x86_64/bin/avr-ar",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-ar",
     ],
 )
 
 filegroup(
     name = "as",
     srcs = [
-        "avr8-gnu-toolchain-linux_x86_64/bin/avr-as",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-as",
     ],
 )
 
 filegroup(
     name = "gcc",
     srcs = [
-        "avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-gcc",
     ],
 )
 
 filegroup(
     name = "ld",
     srcs = [
-        "avr8-gnu-toolchain-linux_x86_64/bin/avr-ld",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-ld",
     ],
 )
 
 filegroup(
     name = "nm",
     srcs = [
-        "avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc-nm",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-gcc-nm",
     ],
 )
 
 filegroup(
     name = "objcopy",
     srcs = [
-        "avr8-gnu-toolchain-linux_x86_64/bin/avr-objcopy",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-objcopy",
     ],
 )
 
 filegroup(
     name = "objdump",
     srcs = [
-        "avr8-gnu-toolchain-linux_x86_64/bin/avr-objdump",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-objdump",
     ],
 )
 
 filegroup(
     name = "size",
     srcs = [
-        "avr8-gnu-toolchain-linux_x86_64/bin/avr-size",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-size",
     ],
 )
 
 filegroup(
     name = "strip",
     srcs = [
-        "avr8-gnu-toolchain-linux_x86_64/bin/avr-strip",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-strip",
     ],
 )
 
 filegroup(
     name = "compiler_pieces",
     srcs = glob([
-        "avr8-gnu-toolchain-linux_x86_64/avr/include/**",
-        "avr8-gnu-toolchain-linux_x86_64/avr/lib/**",
-        "avr8-gnu-toolchain-linux_x86_64/include/**",
-        "avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/**",
-        "avr8-gnu-toolchain-linux_x86_64/libexec/gcc/avr/**",
-        "avr8-gnu-toolchain-linux_x86_64/x86_64-pc-linux-gnu/**",
+        "avr-gcc-10.1.0-x64-linux/avr/include/**",
+        "avr-gcc-10.1.0-x64-linux/avr/lib/**",
+        "avr-gcc-10.1.0-x64-linux/include/**",
+        "avr-gcc-10.1.0-x64-linux/lib/gcc/avr/**",
+        "avr-gcc-10.1.0-x64-linux/libexec/gcc/avr/**",
+        "avr-gcc-10.1.0-x64-linux/x86_64-pc-linux-gnu/**",
     ]),
 )
 
