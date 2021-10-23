@@ -98,6 +98,6 @@ def _impl(ctx):
 
 cc_toolchain_config = rule(
     implementation = _impl,
-    attrs = {},
+	attrs = {},
     provides = [CcToolchainConfigInfo],
 )
