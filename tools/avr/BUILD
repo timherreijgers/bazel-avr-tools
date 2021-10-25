@@ -139,9 +139,10 @@ cc_toolchain(
     toolchain_config = "avr_toolchain_config",
 )
 
-cc_toolchain_suite(
+toolchain(
     name = "toolchain_avr",
-    toolchains = {
-        "avr": ":cc-compiler-avr-gcc",
-    },
+    exec_compatible_with = ["@SSEB_platforms//toolchain/compiler/avr8:avr8"],
+    toolchain = ":cc-compiler-avr-gcc",
+    toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
+	visibility = ["//visibility:public"],
 )
