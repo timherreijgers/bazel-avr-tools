@@ -5,7 +5,7 @@ def _impl(ctx):
     tool_paths = [
         tool_path(
             name = "ar",
-            path = "avr-gcc-10.1.0-x64-linux/bin/avr-ar",
+            path = "/usr/bin/avr-ar",
         ),
         tool_path(
             name = "compat-ld",
