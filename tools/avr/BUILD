@@ -1,5 +1,6 @@
 load("@rules_cc//cc:defs.bzl", "cc_toolchain", "cc_toolchain_suite")
 load(":cc_toolchain_config.bzl", "cc_toolchain_config")
+load("@SSEB_platforms//:platform.bzl", "get_constraints")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -125,7 +126,10 @@ filegroup(
     srcs = glob(["**/*"]),
 )
 
-cc_toolchain_config(name = "avr_toolchain_config")
+cc_toolchain_config(
+    name = "avr_toolchain_config",
+    features = get_constraints()
+)
 
 cc_toolchain(
     name = "cc-compiler-avr-gcc",
