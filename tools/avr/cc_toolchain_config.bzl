@@ -119,6 +119,22 @@ def _impl(ctx):
                 ),
             ],
         ),
+        feature(
+            name = "chip",
+            enabled = True,
+            flag_sets = [
+                flag_set(
+                    actions = all_compile_actions,
+                    flag_groups = [
+                        flag_group(
+                            flags = [
+                                "-mmcu=atmega328p" if "chip/atmega328p" in ctx.features else "",
+                            ],
+                        ),
+                    ],
+                ),
+            ],
+        ),
     ]
 
     print(ctx.features)
