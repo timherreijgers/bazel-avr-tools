@@ -135,9 +135,23 @@ def _impl(ctx):
                 ),
             ],
         ),
+        feature(
+            name = "chip_define",
+            enabled = True,
+            flag_sets = [
+                flag_set(
+                    actions = all_compile_actions,
+                    flag_groups = [
+                        flag_group(
+                            flags = [
+                                "-D__AVR_ATmega328__" if "chip/atmega328p" in ctx.features else "",
+                            ],
+                        ),
+                    ],
+                ),
+            ],
+        ),
     ]
-
-    print(ctx.features)
 
     return cc_common.create_cc_toolchain_config_info(
         ctx = ctx,
