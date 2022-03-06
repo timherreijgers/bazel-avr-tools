@@ -17,7 +17,7 @@ def _impl(ctx):
         ),
         tool_path(
             name = "compat-ld",
-            path = "avr-gcc-10.1.0-x64-linux/bin/avr-ld",
+            path = "/usr/bin/avr-ld",
         ),
         tool_path(
             name = "cpp",
@@ -33,7 +33,7 @@ def _impl(ctx):
         ),
         tool_path(
             name = "ld",
-            path = "avr-gcc-10.1.0-x64-linux/bin/avr-ld",
+            path = "/usr/bin/avr-ld",
         ),
         tool_path(
             name = "nm",
@@ -124,7 +124,7 @@ def _impl(ctx):
             enabled = True,
             flag_sets = [
                 flag_set(
-                    actions = all_compile_actions,
+                    actions = all_compile_actions + all_link_actions,
                     flag_groups = [
                         flag_group(
                             flags = [
