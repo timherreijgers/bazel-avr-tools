@@ -151,6 +151,22 @@ def _impl(ctx):
                 ),
             ],
         ),
+        feature(
+            name = "chip_frequency",
+            enabled = True,
+            flag_sets = [
+                flag_set(
+                    actions = all_compile_actions,
+                    flag_groups = [
+                        flag_group(
+                            flags = [
+                                "-DF_CPU=16000000" if "chip/atmega328p" in ctx.features else "",
+                            ],
+                        ),
+                    ],
+                ),
+            ],
+        ),
     ]
 
     return cc_common.create_cc_toolchain_config_info(
