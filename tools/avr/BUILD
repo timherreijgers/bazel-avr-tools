@@ -7,63 +7,63 @@ package(default_visibility = ["//visibility:public"])
 filegroup(
     name = "ar",
     srcs = [
-        "avr-gcc-10.1.0-x64-linux/bin/avr-ar",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-ar.sh",
     ],
 )
 
 filegroup(
     name = "as",
     srcs = [
-        "avr-gcc-10.1.0-x64-linux/bin/avr-as",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-as.sh",
     ],
 )
 
 filegroup(
     name = "gcc",
     srcs = [
-        "avr-gcc-10.1.0-x64-linux/bin/avr-gcc",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-gcc.sh",
     ],
 )
 
 filegroup(
     name = "ld",
     srcs = [
-        "avr-gcc-10.1.0-x64-linux/bin/avr-ld",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-ld.sh",
     ],
 )
 
 filegroup(
     name = "nm",
     srcs = [
-        "avr-gcc-10.1.0-x64-linux/bin/avr-gcc-nm",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-gcc-nm.sh",
     ],
 )
 
 filegroup(
     name = "objcopy",
     srcs = [
-        "avr-gcc-10.1.0-x64-linux/bin/avr-objcopy",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-objcopy.sh",
     ],
 )
 
 filegroup(
     name = "objdump",
     srcs = [
-        "avr-gcc-10.1.0-x64-linux/bin/avr-objdump",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-objdump.sh",
     ],
 )
 
 filegroup(
     name = "size",
     srcs = [
-        "avr-gcc-10.1.0-x64-linux/bin/avr-size",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-size.sh",
     ],
 )
 
 filegroup(
     name = "strip",
     srcs = [
-        "avr-gcc-10.1.0-x64-linux/bin/avr-strip",
+        "avr-gcc-10.1.0-x64-linux/bin/avr-strip.sh",
     ],
 )
 
@@ -145,7 +145,7 @@ cc_toolchain(
 
 toolchain(
     name = "toolchain_avr",
-    exec_compatible_with = ["@SSEB_platforms//toolchain/compiler/avr8:avr8"],
+    exec_compatible_with = ["@SSEB_platforms//toolchain/compiler/avr8"],
     toolchain = ":cc-compiler-avr-gcc",
     toolchain_type = "@bazel_tools//tools/cpp:toolchain_type",
 	visibility = ["//visibility:public"],
